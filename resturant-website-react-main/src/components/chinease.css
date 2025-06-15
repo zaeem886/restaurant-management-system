@@ -1,0 +1,87 @@
+
+.chinease_card
+{
+    margin: 50px;
+    width: 260px;
+    height: 410px;
+    border: 2px solid rgb(203, 203, 203);
+    border-radius: 10px;
+}
+.img_china
+{
+    height: 255px;
+    width: 250px;
+    border-radius: 10px;
+    margin: 5px;
+}
+.img_china img{
+    height: 255px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.title span
+{
+    font-size: 25px;
+    margin: 5px;
+    color: rgb(93, 99, 20);
+    font-weight: bolder;
+}
+.title p{
+    font-size: 20px;
+    margin: 5px; 
+    font-weight: bolder;
+}
+
+.food_dis
+{
+    font-size: 13px;
+    color: rgb(125, 125, 125);
+    margin-left: 2px;
+}
+.price
+{
+    color: rgb(86, 75, 75);
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-left: 190px;
+    background-color: rgb(214, 214, 214);
+}
+
+.quantity_icons
+{
+    width: 70px;
+    margin-left: 190px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.plus_icons
+{
+   font-size: 25px; 
+
+}
+.minus_icons
+{
+   font-size: 25px; 
+
+}
+.order_count
+{
+    margin-top:3px;
+    font-weight: bold;
+}
+.plus_icons :hover
+{
+   font-size: 25px; 
+   color: greenyellow;
+   background-color: greenyellow;
+
+}
+.minus_icons :hover
+{
+   font-size: 25px; 
+   color: red;
+   background-color: red;
+
+}
