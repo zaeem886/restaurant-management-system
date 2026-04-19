@@ -1,118 +1,120 @@
-# Grubify
+# Grubify - Restaurant Management System
 
-Grubify is a full-stack food ordering web application that supports role-based access for customers and admins.
-It is built using React (frontend), Node.js + Express (backend), and SQL Server with stored procedures.
+Grubify is a full-stack restaurant and food ordering project with:
 
-## Features
-
-- Customer login and product browsing
-- Admin panel to manage products
-- SQL Server database with stored procedures
-- Clean React UI with protected routes
+- A Node.js + Express backend connected to Microsoft SQL Server
+- A React + Vite frontend for browsing menu items and managing cart flow
+- SQL scripts for schema, constraints, and restaurant data setup
 
 ## Tech Stack
 
-- Frontend: React, Axios, React Router
-- Backend: Node.js, Express
-- Database: Microsoft SQL Server
+- Frontend: React, Redux Toolkit, React Router, Vite, Bootstrap, Tailwind
+- Backend: Node.js, Express, MSSQL, CORS
+- Database: Microsoft SQL Server (stored procedures and relational schema)
 
-## Project Structure
+## Repository Structure
 
 ```text
-grubify_full_stack_project/
-├── backend/
-│   ├── db.js                 # Configure your SQL connection here
-│   ├── routes/
-│   ├── controllers/
-│   ├── app.js / index.js
-│   └── grubify.sql           # SQL file to create database and tables
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── App.js
-├── .gitignore
+restaurant-management-system/
+├── resturant-main/
+│   ├── l230997.sql
+│   └── grubify-backend/
+│       ├── server.js
+│       ├── db.js
+│       ├── routes/
+│       ├── controller/
+│       └── modals/
+├── resturant-website-react-main/
+│   ├── package.json
+│   └── src/
+│       ├── App.jsx
+│       ├── components/
+│       ├── router/
+│       └── stores/
 └── README.md
 ```
 
-## Getting Started
+## Backend Setup (Express + SQL Server)
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/SheikhFareed99/grubify_full_stack_project.git
-cd grubify_full_stack_project
-```
-
-### 2. Backend Setup
+### 1. Install dependencies
 
 ```bash
-cd backend
+cd resturant-main/grubify-backend
 npm install
 ```
 
-Open `backend/db.js` and edit the database configuration:
+### 2. Configure SQL connection
+
+Edit `resturant-main/grubify-backend/db.js`:
 
 ```js
 const dbConfig = {
-	user: "YOUR_DB_USERNAME",
-	password: "YOUR_DB_PASSWORD",
-	database: "grubify",
-	server: "localhost\\SQLEXPRESS", // or just "localhost"
-	pool: {
-		max: 10,
-		min: 0,
-		idleTimeoutMillis: 30000,
-	},
-	options: {
-		encrypt: false,
-		enableArithAbort: true,
-		trustServerCertificate: true,
-	},
+  user: "sa",
+  password: "12345678",
+  database: "hi",
+  server: "localhost\\SQLEXPRESS",
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000,
+  },
+  options: {
+    encrypt: false,
+    enableArithAbort: true,
+    trustServerCertificate: true,
+  },
 };
 ```
 
-Replace:
+Update these values for your local SQL Server instance:
 
-- `YOUR_DB_USERNAME` (for example: `sa`)
-- `YOUR_DB_PASSWORD` (for example: `12345678`)
+- `user`
+- `password`
+- `server`
+- `database` (the SQL file currently creates `hi`)
 
-Example values already present in many local setups:
-
-- `user: "sa"`
-- `password: "12345678"`
-- `server: "localhost\\SQLEXPRESS"`
-
-### 3. Setup Database
+### 3. Create database and tables
 
 1. Open SQL Server Management Studio (SSMS)
-2. Run `backend/grubify.sql`
-3. This creates the `grubify` database, tables, and stored procedures
+2. Run `resturant-main/l230997.sql`
+3. Confirm database `hi` is created with required tables
 
-### 4. Start Backend Server
+### 4. Start backend server
 
 ```bash
-node ./server.js
+node server.js
 ```
 
-### 5. Frontend Setup
+Backend runs on: `http://localhost:3000`
+
+## Frontend Setup (React + Vite)
+
+### 1. Install dependencies
 
 ```bash
-cd ../frontend
+cd resturant-website-react-main
 npm install
+```
+
+### 2. Start development server
+
+```bash
 npm run dev
 ```
 
-React app runs at: `http://localhost:3000`
+Frontend runs on Vite default URL (usually): `http://localhost:5173`
 
-## Demo Credentials
+## Key API Routes
 
-Customer:
+- `POST /api/v1/login` - customer login
+- `POST /api/v1/loginadmin` - admin login
+- `POST /api/v1/register` - user registration
+- `GET /menu/:category` - fetch products by category
+- `POST /order` - create a quick order payload
+- `GET /api/v2/menu` - menu endpoint from orders router
 
-- Email: `zaeem@gmail.com`
-- Password: `12345`
+## Notes
 
-Admin:
-
-- Email: `admin222@example.com`
-- Password: `123123`
+- The project folder names use `resturant` (current naming in repository).
+- Backend and frontend run as separate apps.
+- Ensure SQL Server is running before starting backend.
