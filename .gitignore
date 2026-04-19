@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Runtime files
+*.pid
+*.seed
+*.pid.lock
+
+# SQL Server local files
+*.mdf
+*.ldf
+
+# Frontend cache
+.parcel-cache/
+.vite/
